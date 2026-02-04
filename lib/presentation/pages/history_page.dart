@@ -13,7 +13,6 @@ class HistoryPage extends ConsumerWidget {
     final historyAsync = ref.watch(metricsHistoryProvider);
 
     return Scaffold(
-      // AppBar handled by MainScaffold
       body: historyAsync.when(
         data: (history) {
           if (history.isEmpty) {
@@ -69,10 +68,8 @@ class HistoryPage extends ConsumerWidget {
   }
 
   Widget _buildWeightChart(List<BodyMetrics> history) {
-    // Sort history chronologically (oldest first) for the chart
     final reversedHistory = history.reversed.toList();
 
-    // Create spots
     final spots =
         reversedHistory.asMap().entries.map((entry) {
           return FlSpot(entry.key.toDouble(), entry.value.weight);
@@ -83,37 +80,45 @@ class HistoryPage extends ConsumerWidget {
         gridData: FlGridData(
           show: true,
           drawVerticalLine: false,
-          horizontalInterval: 1,
           getDrawingHorizontalLine: (value) {
             return FlLine(color: Colors.grey.withOpacity(0.1), strokeWidth: 1);
           },
         ),
         titlesData: FlTitlesData(
-          show: true,
           rightTitles: const AxisTitles(
             sideTitles: SideTitles(showTitles: false),
           ),
           topTitles: const AxisTitles(
             sideTitles: SideTitles(showTitles: false),
           ),
+
+          /// ✅ CORRECCIÓN REAL AQUÍ
           bottomTitles: AxisTitles(
             sideTitles: SideTitles(
               showTitles: true,
-              reservedSize: 30,
+              reservedSize: 32,
               interval: 1,
               getTitlesWidget: (value, meta) {
                 final index = value.toInt();
                 if (index < 0 || index >= reversedHistory.length) {
-                  return const Text('debe ingresar un valor correcto');
+                  return const SizedBox.shrink();
                 }
-                // Show dates only for some points to avoid overcrowding if many
-                if (reversedHistory.length > 7 && index % 2 != 0) {
-                  return const Text('debe ingresar un valor correcto');
+
+                final total = reversedHistory.length;
+                final step =
+                    total <= 6
+                        ? 1
+                        : total <= 12
+                        ? 2
+                        : 3;
+
+                if (index % step != 0) {
+                  return const SizedBox.shrink();
                 }
 
                 final date = reversedHistory[index].createdAt;
                 return Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
+                  padding: const EdgeInsets.only(top: 8),
                   child: Text(
                     DateFormat('dd/MM').format(date),
                     style: TextStyle(color: Colors.grey[600], fontSize: 10),
@@ -122,6 +127,7 @@ class HistoryPage extends ConsumerWidget {
               },
             ),
           ),
+
           leftTitles: AxisTitles(
             sideTitles: SideTitles(
               showTitles: true,
@@ -138,7 +144,6 @@ class HistoryPage extends ConsumerWidget {
         borderData: FlBorderData(show: false),
         minX: 0,
         maxX: (reversedHistory.length - 1).toDouble(),
-        // Add some buffer to Y axis
         minY:
             (reversedHistory
                         .map((e) => e.weight)
@@ -167,11 +172,10 @@ class HistoryPage extends ConsumerWidget {
         ],
         lineTouchData: LineTouchData(
           touchTooltipData: LineTouchTooltipData(
-            getTooltipColor: (spot) => Colors.green,
+            getTooltipColor: (_) => Colors.green,
             getTooltipItems: (touchedSpots) {
-              return touchedSpots.map((touchedSpot) {
-                final index = touchedSpot.x.toInt();
-                final data = reversedHistory[index];
+              return touchedSpots.map((spot) {
+                final data = reversedHistory[spot.x.toInt()];
                 return LineTooltipItem(
                   '${DateFormat('dd/MM').format(data.createdAt)}\n${data.weight} kg',
                   const TextStyle(
@@ -191,7 +195,7 @@ class HistoryPage extends ConsumerWidget {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: DataTable(
           headingRowColor: WidgetStateProperty.all(
             Colors.green.withOpacity(0.1),
@@ -231,7 +235,6 @@ class HistoryPage extends ConsumerWidget {
   }
 
   List<DataRow> _generateRows(List<BodyMetrics> history) {
-    // history is already sorted descending
     return List.generate(history.length, (index) {
       final current = history[index];
 
@@ -253,7 +256,6 @@ class HistoryPage extends ConsumerWidget {
           variationIcon = Icons.arrow_downward;
         } else {
           variationText = '0.0 kg';
-          variationColor = Colors.grey;
           variationIcon = Icons.remove;
         }
       }
@@ -291,7 +293,6 @@ class HistoryPage extends ConsumerWidget {
 
   Widget _buildBmiBadge(double bmi) {
     Color color;
-
     if (bmi < 18.5) {
       color = Colors.blue;
     } else if (bmi < 25) {
@@ -310,7 +311,7 @@ class HistoryPage extends ConsumerWidget {
         border: Border.all(color: color.withOpacity(0.5)),
       ),
       child: Text(
-        '${bmi.toStringAsFixed(1)}',
+        bmi.toStringAsFixed(1),
         style: TextStyle(
           color: color,
           fontSize: 12,

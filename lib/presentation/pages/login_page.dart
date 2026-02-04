@@ -105,10 +105,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(Icons.person),
                       ),
+                      style: const TextStyle(color: Colors.green),
                     ),
                     const SizedBox(height: 16),
                     TextField(
                       controller: _passwordController,
+                      style: const TextStyle(color: Colors.green),
                       obscureText: _obscurePassword,
                       decoration: InputDecoration(
                         labelText: 'Contraseña',
