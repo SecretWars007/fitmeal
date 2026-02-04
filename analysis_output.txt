@@ -1,0 +1,55 @@
+Analyzing fitmeal...                                            
+
+   info - The imported package 'get_it' isn't a dependency of the importing package - lib\core\di\injection_container.dart:1:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:get_it/get_it.dart' - lib\core\di\injection_container.dart:1:8 - uri_does_not_exist
+   info - The imported package 'dio' isn't a dependency of the importing package - lib\core\di\injection_container.dart:2:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:dio/dio.dart' - lib\core\di\injection_container.dart:2:8 - uri_does_not_exist
+  error - Target of URI doesn't exist: '../../domain/usecases/sign_in_usecase.dart' - lib\core\di\injection_container.dart:6:8 - uri_does_not_exist
+  error - Target of URI doesn't exist: '../../domain/usecases/sign_up_usecase.dart' - lib\core\di\injection_container.dart:7:8 - uri_does_not_exist
+  error - Target of URI doesn't exist: '../../presentation/viewmodels/login_viewmodel.dart' - lib\core\di\injection_container.dart:8:8 - uri_does_not_exist
+  error - Target of URI doesn't exist: '../../presentation/viewmodels/register_viewmodel.dart' - lib\core\di\injection_container.dart:9:8 - uri_does_not_exist
+  error - Undefined name 'GetIt' - lib\core\di\injection_container.dart:11:12 - undefined_identifier
+  error - The function 'LoginViewModel' isn't defined - lib\core\di\injection_container.dart:15:28 - undefined_function
+  error - The function 'RegisterViewModel' isn't defined - lib\core\di\injection_container.dart:16:28 - undefined_function
+  error - The function 'SignInUseCase' isn't defined - lib\core\di\injection_container.dart:19:34 - undefined_function
+  error - The function 'SignUpUseCase' isn't defined - lib\core\di\injection_container.dart:20:34 - undefined_function
+  error - The function 'Dio' isn't defined - lib\core\di\injection_container.dart:33:34 - undefined_function
+   info - Parameter 'message' could be a super parameter - lib\core\error\failures.dart:7:3 - use_super_parameters
+   info - Parameter 'message' could be a super parameter - lib\core\error\failures.dart:11:3 - use_super_parameters
+   info - Parameter 'message' could be a super parameter - lib\core\error\failures.dart:15:3 - use_super_parameters
+   info - The imported package 'dio' isn't a dependency of the importing package - lib\data\datasources\auth_remote_data_source.dart:1:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:dio/dio.dart' - lib\data\datasources\auth_remote_data_source.dart:1:8 - uri_does_not_exist
+  error - Target of URI doesn't exist: '../models/auth_models.dart' - lib\data\datasources\auth_remote_data_source.dart:2:8 - uri_does_not_exist
+  error - The name 'AuthResponseModel' isn't a type, so it can't be used as a type argument - lib\data\datasources\auth_remote_data_source.dart:5:10 - non_type_as_type_argument
+  error - The name 'GenericResponseModel' isn't a type, so it can't be used as a type argument - lib\data\datasources\auth_remote_data_source.dart:6:10 - non_type_as_type_argument
+  error - Undefined class 'Dio' - lib\data\datasources\auth_remote_data_source.dart:17:9 - undefined_class
+  error - The name 'AuthResponseModel' isn't a type, so it can't be used as a type argument - lib\data\datasources\auth_remote_data_source.dart:22:10 - non_type_as_type_argument
+  error - Undefined name 'AuthResponseModel' - lib\data\datasources\auth_remote_data_source.dart:33:14 - undefined_identifier
+  error - The name 'GenericResponseModel' isn't a type, so it can't be used as a type argument - lib\data\datasources\auth_remote_data_source.dart:40:10 - non_type_as_type_argument
+  error - Undefined name 'GenericResponseModel' - lib\data\datasources\auth_remote_data_source.dart:61:14 - undefined_identifier
+   info - The imported package 'dartz' isn't a dependency of the importing package - lib\data\repositories\auth_repository_impl.dart:1:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:dartz/dartz.dart' - lib\data\repositories\auth_repository_impl.dart:1:8 - uri_does_not_exist
+  error - Target of URI doesn't exist: '../../domain/entities/user.dart' - lib\data\repositories\auth_repository_impl.dart:3:8 - uri_does_not_exist
+  error - The name 'Either' isn't a type, so it can't be used as a type argument - lib\data\repositories\auth_repository_impl.dart:13:10 - non_type_as_type_argument
+  error - The name 'User' isn't a type, so it can't be used as a type argument - lib\data\repositories\auth_repository_impl.dart:13:26 - non_type_as_type_argument
+  error - The method 'Right' isn't defined for the type 'AuthRepository' - lib\data\repositories\auth_repository_impl.dart:20:14 - undefined_method
+  error - The method 'Left' isn't defined for the type 'AuthRepository' - lib\data\repositories\auth_repository_impl.dart:22:14 - undefined_method
+  error - The name 'Either' isn't a type, so it can't be used as a type argument - lib\data\repositories\auth_repository_impl.dart:27:10 - non_type_as_type_argument
+  error - The name 'Right' isn't a class - lib\data\repositories\auth_repository_impl.dart:45:22 - creation_with_non_type
+  error - The method 'Left' isn't defined for the type 'AuthRepository' - lib\data\repositories\auth_repository_impl.dart:47:16 - undefined_method
+  error - The method 'Left' isn't defined for the type 'AuthRepository' - lib\data\repositories\auth_repository_impl.dart:50:14 - undefined_method
+warning - Unused import: 'dart:math' - lib\domain\logic\body_metrics_calculator.dart:1:8 - unused_import
+   info - The imported package 'dartz' isn't a dependency of the importing package - lib\domain\repositories\auth_repository.dart:1:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:dartz/dartz.dart' - lib\domain\repositories\auth_repository.dart:1:8 - uri_does_not_exist
+  error - Target of URI doesn't exist: '../entities/user.dart' - lib\domain\repositories\auth_repository.dart:3:8 - uri_does_not_exist
+  error - The name 'Either' isn't a type, so it can't be used as a type argument - lib\domain\repositories\auth_repository.dart:6:10 - non_type_as_type_argument
+  error - The name 'User' isn't a type, so it can't be used as a type argument - lib\domain\repositories\auth_repository.dart:6:26 - non_type_as_type_argument
+  error - The name 'Either' isn't a type, so it can't be used as a type argument - lib\domain\repositories\auth_repository.dart:12:10 - non_type_as_type_argument
+warning - Unused import: '../providers/providers.dart' - lib\presentation\pages\alarms_page.dart:3:8 - unused_import
+   info - Don't use 'BuildContext's across async gaps - lib\presentation\pages\alarms_page.dart:33:28 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\presentation\pages\alarms_page.dart:38:28 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\presentation\pages\login_page.dart:26:28 - use_build_context_synchronously
+   info - The private field _gender could be 'final' - lib\presentation\pages\profile_setup_page.dart:18:10 - prefer_final_fields
+   info - The private field _goal could be 'final' - lib\presentation\pages\profile_setup_page.dart:20:10 - prefer_final_fields
+   info - Don't use 'BuildContext's across async gaps - lib\presentation\pages\profile_setup_page.dart:55:28 - use_build_context_synchronously
+
