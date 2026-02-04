@@ -3,9 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/providers.dart';
 import '../../domain/logic/body_metrics_calculator.dart';
 
-import 'evaluation_page.dart';
 
-import 'dashboard_page.dart';
 
 class EvaluationPage extends ConsumerStatefulWidget {
   const EvaluationPage({super.key});
@@ -387,16 +385,19 @@ class _EvaluationPageState extends ConsumerState<EvaluationPage> {
   }
 
   String _getDietText() {
-    if (_bmi < 18.5)
+    if (_bmi < 18.5) {
       return 'Aumenta tu ingesta de proteínas y carbohidratos complejos. Consume frutos secos y grasas saludables.';
-    if (_bmi < 25)
+    }
+    if (_bmi < 25) {
       return 'Mantén una dieta equilibrada rica en fibra, frutas y verduras. Prioriza proteínas magras.';
+    }
     return 'Reduce el consumo de azúcares refinados y harinas. Controla las porciones y aumenta el consumo de agua.';
   }
 
   String _getHabitsText() {
-    if (_bmi < 25)
+    if (_bmi < 25) {
       return 'Realiza actividad física regular y asegúrate de dormir entre 7-8 horas diarias para mantener tu metabolismo.';
+    }
     return 'Empieza con caminatas diarias de 30 minutos. Evita el sedentarismo y reduce el consumo de sal.';
   }
 

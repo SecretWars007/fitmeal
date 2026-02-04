@@ -103,11 +103,13 @@ class HistoryPage extends ConsumerWidget {
               interval: 1,
               getTitlesWidget: (value, meta) {
                 final index = value.toInt();
-                if (index < 0 || index >= reversedHistory.length)
-                  return const Text('');
+                if (index < 0 || index >= reversedHistory.length) {
+                  return const Text('debe ingresar un valor correcto');
+                }
                 // Show dates only for some points to avoid overcrowding if many
-                if (reversedHistory.length > 7 && index % 2 != 0)
-                  return const Text('');
+                if (reversedHistory.length > 7 && index % 2 != 0) {
+                  return const Text('debe ingresar un valor correcto');
+                }
 
                 final date = reversedHistory[index].createdAt;
                 return Padding(

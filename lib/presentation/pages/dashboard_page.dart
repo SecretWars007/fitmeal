@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/providers.dart';
 import '../../domain/logic/body_metrics_calculator.dart';
 import 'evaluation_page.dart';
-import 'login_page.dart';
 import '../widgets/water_tracker_card.dart';
 
 class DashboardPage extends ConsumerWidget {

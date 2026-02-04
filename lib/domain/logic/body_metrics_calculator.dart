@@ -1,5 +1,3 @@
-import 'dart:math';
-
 class BodyMetricsCalculator {
   /// Calculate BMI: weight (kg) / height^2 (m)
   static double calculateBMI(double weight, double heightCm) {
